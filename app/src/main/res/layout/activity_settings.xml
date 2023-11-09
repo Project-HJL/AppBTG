@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Elemento de Layout para Nome de Usuário -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nome de Usuário"
+        android:textSize="16sp"
+        android:layout_marginTop="16dp"
+        android:id="@+id/textViewUsername"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Seu Nome de Usuário"
+        android:inputType="text"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/textViewUsername"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Elemento de Layout para Senha -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Senha"
+        android:textSize="16sp"
+        android:id="@+id/textViewPassword"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_marginTop="16dp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Sua Senha"
+        android:inputType="textPassword"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/textViewPassword"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Botão Salvar -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Salvar"
+        android:id="@+id/buttonSave"
+        android:layout_marginTop="16dp"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Opção Excluir Conta -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Excluir Conta"
+        android:id="@+id/buttonDeleteAccount"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/buttonSave"
+        android:layout_centerHorizontal="true" />
+
+    <!-- Opção Sair / Logout -->
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Sair"
+        android:id="@+id/buttonLogout"
+        android:layout_marginTop="8dp"
+        android:layout_below="@+id/buttonDeleteAccount"
+        android:layout_centerHorizontal="true" />
+
+    <!-- BottomNavigation -->
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/bottomNavigationView"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/bottom_background"
+        android:layout_marginStart="15dp"
+        android:layout_marginEnd="15dp"
+        android:elevation="2dp"
+        app:menu="@menu/bottom_menu"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@drawable/item_selector"
+        app:itemRippleColor="@color/transparent"
+        app:labelVisibilityMode="unlabeled"
+        android:layout_marginBottom="20dp"
+        android:layout_marginTop="30dp" />
+    <!-- BottomNavigation -->
+
+</RelativeLayout>

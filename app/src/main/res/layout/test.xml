@@ -1,0 +1,65 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:maxWidth="180dp"
+    android:padding="20dp">
+
+    <!-- Campo de entrada -->
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingStart="0dp"
+        android:paddingTop="7dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="7dp"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textViewUsername"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextUsername"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:text="Name"
+        android:textColor="#9b9b9b"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="0dp"
+        android:layout_marginBottom="20dp"
+        android:background="@android:color/transparent"
+        android:hint="Name"
+        android:inputType="text"
+        android:paddingStart="0dp"
+        android:paddingTop="7dp"
+        android:paddingEnd="0dp"
+        android:paddingBottom="7dp"
+        android:textSize="17sp" />
+
+    <TextView
+        android:id="@+id/textViewPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/editTextPassword"
+        android:layout_marginStart="0dp"
+        android:layout_marginEnd="0dp"
+        android:text="Name"
+        android:textColor="#9b9b9b"
+        android:textSize="17sp" />
+
+</RelativeLayout>

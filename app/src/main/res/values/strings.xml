@@ -1,0 +1,205 @@
+<resources>
+    <string name="app_name">BTGTCC</string>
+
+<string name="app_version" translatable="false">v.0.0.2</string>
+<string name="app_slogan" translatable="false">Save on the market</string>
+<string name="app_welcome" translatable="false">Be welcome</string>
+<string name="text_forgot_password" translatable="false">Forgot password?</string>
+<string name="text_new_user" translatable="false">Register new user</string>
+<string name="text_sign_in" translatable="false">Sign In</string>
+<string name="text_sign_up" translatable="false">Sign Up</string>
+<string name="text_password" translatable="false">Password</string>
+<string name="text_log_in" translatable="false">Login</string>
+<string name="text_log_out" translatable="false">Logout</string>
+<string name="text_fetch_user" translatable="false">Fetch user</string>
+<string name="text_email_or_username" translatable="false">Email or username</string>
+<string name="text_email_or_password_incorrect" translatable="false">Email or password incorrect</string>
+
+<string name="text_full_name" translatable="false">Full name</string>
+<string name="text_email" translatable="false">Email</string>
+<string name="text_user_name" translatable="false">Username</string>
+
+<string name="text_error_fill_mandatory_information" translatable="false">Mandatory information</string>
+<string name="text_error_all_fields_required" translatable="false">All fields required</string>
+<string name="title_activity_login" translatable="false">LoginActivity</string>
+<string name="text_email_not_valid" translatable="false">Email not valid</string>
+<string name="text_abandon_reset_password" translatable="false">Abandon reset password</string>
+
+<string name="prompt_email" translatable="false">Email</string>
+<string name="prompt_password" translatable="false">Password</string>
+
+<string name="action_sign_in" translatable="false">Sign in or register</string>
+<string name="action_sign_in_short" translatable="false">Sign in</string>
+
+<string name="welcome" translatable="false">"Welcome !"</string>
+
+<string name="invalid_username" translatable="false">Not a valid username</string>
+<string name="invalid_password" translatable="false">Password must be >5 characters</string>
+
+<string name="login_failed" translatable="false">"Login failed"</string>
+
+<string name="title_activity_sign_up" translatable="false">SignUpActivity</string>
+<string name="already_have_an_account_login" translatable="false">Already have an account? Login</string>
+
+
+<string name="item_menu_pizza" translatable="false">Pizza</string>
+
+<string name="item_menu_burger" translatable="false">Burger</string>
+<string name="item_menu_soft_drink" translatable="false">Soft Drink</string>
+<string name="item_menu_juice" translatable="false">Juice</string>
+<string name="item_menu_water" translatable="false">Water</string>
+<string name="item_menu_ice_cream" translatable="false">Ice cream</string>
+<string name="item_menu_coffee" translatable="false">Coffee</string>
+<string name="item_menu_cake" translatable="false">Cake</string>
+<string name="item_menu_soup" translatable="false">Soup</string>
+<string name="item_menu_tea" translatable="false">Tea</string>
+
+<string name="text_confirm_button" translatable="false">Finish</string>
+<string name="text_reset_button" translatable="false">Reset</string>
+<string name="text_otp" translatable="false">Enter OTP</string>
+<string name="text_new_password" translatable="false">Enter new password</string>
+
+<string name="text_wifi_interface_not_avaliable" translatable="false">WiFi interface not available</string>
+
+<string name="invalid_assets" translatable="false">Unable to load assets</string>
+<string name="permission_required" translatable="false">Camera permissions are required to use the QR Scanner</string>
+<string name="scan_prompt" translatable="false">Scan QR Code from lottiefiles.com</string>
+<string name="render_times_graph" translatable="false">Show real time render time graph</string>
+<string name="hardware_acceleration" translatable="false">Use hardware acceleration</string>
+<string name="enable_merge_paths" translatable="false">Enable merge paths (KK+ only)</string>
+<string name="menu_item_visibility" translatable="false">Hide Controls</string>
+
+<!-- Shortcuts -->
+<string name="shortcut_animation_viewer" translatable="false">Animation Viewer</string>
+<string name="shortcut_animation_viewer_short" translatable="false">Viewer</string>
+<string name="shortcut_animated_typography" translatable="false">Animated Typography</string>
+<string name="shortcut_animated_typography_short" translatable="false">Typography</string>
+<string name="shortcut_animated_app_tutorial" translatable="false">Animated App Tutorial</string>
+<string name="shortcut_animated_app_tutorial_short" translatable="false">App Tutorial</string>
+<string name="shortcut_full_screen_animation" translatable="false">Full Screen Animation</string>
+<string name="shortcut_full_screen_animation_short" translatable="false">Full Screen</string>
+<string name="shortcut_disabled" translatable="false">Shortcut Disabled</string>
+<string name="start_typing" translatable="false">Start typing!</string>
+<string name="qr_code_overlay" translatable="false">QR code overlay</string>
+<string name="qr_permission_denied" translatable="false">QR scanning requires the camera permission.</string>
+
+<string name="scale" translatable="false">Scale</string>
+<string name="background" translatable="false">Background</string>
+<string name="ms" translatable="false">ms</string>
+
+<string name="bottom_bar_showcase" translatable="false">Showcase</string>
+<string name="bottom_bar_preview" translatable="false">Preview</string>
+<string name="bottom_bar_lottiefiles" translatable="false">Lottiefiles</string>
+<string name="bottom_bar_learn" translatable="false">Learn</string>
+
+<string name="preview_title" translatable="false">Preview</string>
+<string name="preview_qr" translatable="false">Scan a QR code</string>
+<string name="preview_assets" translatable="false">Load from assets</string>
+<string name="preview_file" translatable="false">Open a file</string>
+<string name="preview_url" translatable="false">Enter a URL to a json or zip file</string>
+<string name="preview_load" translatable="false">Load</string>
+<string name="preview_cancel" translatable="false">Cancel</string>
+
+<string name="composition_load_error" translatable="false">There was an error loading the composition</string>
+
+<string name="control_bar_border" translatable="false">Border</string>
+<string name="control_bar_background_color" translatable="false">Background</string>
+<string name="control_bar_hardware_acceleration" translatable="false">Hardware Acceleration</string>
+<string name="control_bar_render_graph" translatable="false">Render Graph</string>
+<string name="control_bar_scale" translatable="false">Scale</string>
+<string name="control_bar_masks_and_mattes" translatable="false">Outline Masks</string>
+<string name="control_bar_trim" translatable="false">Trim</string>
+<string name="control_bar_speed" translatable="false">Speed</string>
+<string name="control_bar_key_paths" translatable="false">Show KeyPaths</string>
+<string name="control_bar_merge_paths" translatable="false">Merge Paths (KitKat+)</string>
+<string name="control_bar_apply_opacity_to_layers" translatable="false">Apply Opacity To Layers</string>
+
+<string name="minus_one_x" translatable="false">-1x</string>
+<string name="minus_half_x" translatable="false">-0.5x</string>
+<string name="half_x" translatable="false">0.5x</string>
+<string name="one_x" translatable="false">1x</string>
+<string name="two_x" translatable="false">2x</string>
+
+<string name="min_frame_dialog" translatable="false">Set min frame</string>
+<string name="max_frame_dialog" translatable="false">Set max frame</string>
+<string name="min_frame" translatable="false">Min frame: %1$d</string>
+<string name="max_frame" translatable="false">Max frame: %1$d</string>
+
+<string name="render_times_per_layer_button" translatable="false">View render times per layer</string>
+<string name="lottie_version" translatable="false">Lottie %1$s</string>e
+<string name="render_times_title" translatable="false">Render time per layer</string>
+<string name="key_paths_title" translatable="false">KeyPaths in animation.\nUsed for dynamic properties.</string>
+<string name="warnings_title" translatable="false">Warnings</string>
+
+<string name="lottiefiles" translatable="false">Lottiefiles</string>
+<string name="lottiefiles_airbnb" translatable="false">Lottiefiles is not affiliated with Airbnb</string>
+<string name="popular" translatable="false">Popular</string>
+<string name="recent" translatable="false">Recent</string>
+<string name="search" translatable="false">Search</string>
+
+<string name="anonymous" translatable="false">Anonymous</string>
+
+<string name="showcase_item_bullseye" translatable="false">\nBullseye</string>
+<string name="showcase_item_dynamic_properties" translatable="false">Dynamic\nProperties</string>
+<string name="showcase_item_animated_text" translatable="false">Animated\nText</string>
+<string name="showcase_item_dynamic_text" translatable="false">Dynamic\nText</string>
+<string name="showcase_item_recycler_view" translatable="false">RecyclerView</string>
+<string name="bullseye_drag_dot" translatable="false">Drag the blue dot</string>
+<string name="text_enter_the_password_again" translatable="false">Enter the password again</string>
+<string name="text_password_are_not_same" translatable="false">Password are not the same</string>
+<string name="text_insert_error" translatable="false">Insert error</string>
+<string name="text_insert_success" translatable="false">Insert success</string>
+<string name="text_list_products" translatable="false">Products</string>
+<string name="text_connection_error" translatable="false">Connect Failed</string>
+
+<string name="text_category_hortifruti" translatable="false">Hortifruti: This section offers fresh fruits and vegetables.</string>
+<string name="text_category_grocery_store" translatable="false">Grocery store: Here you will find dry and canned food items, such as rice, beans, pasta, cereals, sauces and canned goods in general.</string>
+<string name="text_category_meat" translatable="false">Meat: Includes beef, pork, poultry, fish and seafood, fresh or frozen.</string>
+<string name="text_category_cold_cuts_and_dairy_products" translatable="false">Cold cuts and dairy products: This section offers cheese, yogurt, milk, butter, margarine, ham and sausages.</string>
+<string name="text_category_bakery" translatable="false">Bakery: Here you will find breads, cakes, sweets and snacks, both fresh and processed.</string>
+<string name="text_category_drinks" translatable="false">Drinks: In this area, you will find alcoholic and non-alcoholic drinks, such as water, soft drinks, juices, beers, wines and spirits.</string>
+<string name="text_category_frozen" translatable="false">Frozen: This section contains frozen foods such as ice cream, ready meals, frozen vegetables and fruits.</string>
+<string name="text_category_cleaning_products" translatable="false">Cleaning Products: In this area, you will find detergents, washing powder, disinfectants, fabric softeners, and other products for hygiene and domestic cleaning.</string>
+<string name="text_category_personal_hygiene_and_beauty" translatable="false">Personal Hygiene and Beauty: Here you will find products such as shampoo, conditioner, soaps, deodorants, makeup, and products for skin and hair care.</string>
+<string name="text_category_baby_items" translatable="false">Baby Items: In this section, you all find diapers, wipes, baby food, bottles, and other related items.</string>
+<string name="text_category_pet_shop" translatable="false">Pet Shop: Here you will find food and accessories for pets, such as food, toys, houses and hygiene products.</string>
+<string name="text_category_appliances_and_electronics" translatable="false">Appliances and Electronics: This area offers products such as televisions, refrigerators, stoves, microwaves, smartphones, and other electronic devices and household appliances.</string>
+<string name="text_category_housewares_and_decoration" translatable="false">Housewares and decoration: Here you will find items such as kitchen utensils, cutlery, pots, towels, bed linen and decoration objects.</string>
+<string name="text_category_stationery_and_office" translatable="false">Stationery and office: In this section, you will find school and office supplies, such as notebooks, pens, pencils, diaries and computer items.</string>
+<string name="text_category_others" translatable="false">Others: seasonal or unforeseen items.</string>
+<string name="text_total_purchase_value_forecast" translatable="false">Total Purchase Value Forecast</string>
+
+
+        <string name="date" translatable="false">A thin wrapper around a millisecond value that allows JDBC to identify this as an SQL DATE
+        value. A milliseconds value represents the number of milliseconds that have passed since January 1, 1970 00:00:00.000 GMT.
+        To conform with the definition of SQL DATE, the millisecond values wrapped by a java.sql.Date instance
+        must be normalized by setting the hours, minutes, seconds, and milliseconds to zero in the particular time zone with which the instance is associated.
+        </string>
+
+        <string name="rating" translatable="false">A RatingBar is an extension of SeekBar and ProgressBar that shows a rating in stars.
+        The user can touch/drag or use arrow keys to set the rating when using the default size RatingBar.
+        The smaller RatingBar style ( R.attr.ratingBarStyleSmall) and the larger indicator-only style
+        (R.attr.ratingBarStyleIndicator) do not support user interaction and should only be used as indicators.
+        When using a RatingBar that supports user interaction, placing widgets to the left or right of the
+        RatingBar is discouraged.</string>
+
+        <string name="edit" translatable="false">A TextView displays text to the user and optionally allows them to edit it.
+        A TextView is a complete text editor, however the basic class is configured to not allow editing.
+        </string>
+
+        <string name="camera" translatable="false">The Android framework includes support for various cameras and camera features
+        available on devices, allowing you to capture pictures and videos in your applications.
+        This document discusses a quick, simple approach to image and video capture and outlines an advanced
+        approach for creating custom camera experiences for your users.</string>
+
+        <string name="recyclerview" translatable="false">RecyclerView is the ViewGroup that contains the views corresponding to your data.
+        Its a view itself so you add RecyclerView into your layout the way you would add any other UI element.
+        Each individual element in the list is defined by a view holder object.
+        RecyclerView is a ViewGroup added to the android studio as a successor of the GridView and ListView.
+        It is an improvement on both of them and can be found in the latest v-7 support packages.
+        It has been created to make possible construction of any lists with XML layouts as an item
+        which can be customized vastly while improving on the efficiency of ListViews and GridViews.
+    </string>
+
+
+</resources>
