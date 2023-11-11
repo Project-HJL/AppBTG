@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
 import android.view.View;
@@ -33,6 +34,9 @@ public class LoginActivity extends AppCompatActivity {
     String mStringUserName, mStringPassword, mStringEmail;
     int userId;
     SharedPreferences mSharedPreferencesLogin;
+
+    private User mUser; // Certifique-se de declarar a variável mUser no escopo da atividade
+
 
     private boolean isRequiredPassword() {
         return TextUtils.isEmpty(mEditTextPassword.getText());
@@ -77,26 +81,39 @@ public class LoginActivity extends AppCompatActivity {
 
         User mUser = new User(mStringPassword, mStringEmail);
 
-        int userId = UserDao.authenticateUser(mUser, getApplicationContext());
+        int userId = UserDao.pegaId(mUser, getApplicationContext());
 
-        if (userId != -1) {
-            SharedPreferences.Editor mEditor = mSharedPreferencesLogin.edit();
-            mEditor.putString("logged", "true");
-            mEditor.putInt("userId", userId);  // Armazena o ID do usuário
-            mEditor.apply();
+//        int deleteResult = UserDao.deleteUser(userId, getApplicationContext());
 
-            Intent mIntent = new Intent(getApplicationContext(), HomeActivity.class);
-            // Você pode passar o userId para a próxima atividade se necessário.
-            mIntent.putExtra("EXTRA_USER_ID", userId);
-            startActivity(mIntent);
-            finish();
-        } else {
-            // Lidar com o erro de login
-            String mTextMessage = getString(R.string.text_email_or_password_incorrect);
-            Toast.makeText(getApplicationContext(), mTextMessage, Toast.LENGTH_SHORT).show();
-        }
+
+        String mResult = UserDao.authenticateUser(mUser, getApplicationContext());
 
         mProgressBarLogin.setVisibility(View.GONE);
+
+        if (mResult.isEmpty()  /**/ || mResult.equals("") || mResult.equals("Exception")) {
+            String mTextMessage;
+            mTextMessage = getString(R.string.text_email_or_password_incorrect);
+            if (mResult.equals("Exeption")) {
+                mTextMessage = getString(R.string.text_connection_error);
+            }
+            Toast.makeText(getApplicationContext(), mTextMessage, Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+
+        SharedPreferences.Editor mEditor = mSharedPreferencesLogin.edit();
+        mEditor.putString("logged", "true");
+        mEditor.putString("email", mStringEmail);
+        mEditor.putString("fullname", mResult);
+        mEditor.putInt("userId", userId);
+        mEditor.apply();
+
+        Intent mIntent = new Intent(getApplicationContext(), HomeActivity.class/*Mudar o main para a proxima tela na navegação*/);
+        mIntent.putExtra("EXTRA_FULLNAME", mResult);
+        startActivity(mIntent);
+        finish();
+        Log.d(TAG, "Email: " + mStringEmail + ", Password: " + mStringPassword + ", Id: " + userId);
+
     }
 
 

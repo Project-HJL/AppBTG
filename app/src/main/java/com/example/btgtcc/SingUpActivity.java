@@ -95,6 +95,10 @@ public class  SingUpActivity extends AppCompatActivity {
         User user = new User(name, password1, email);
         int result = UserDao.insertUser(user, getApplicationContext());
 
+        User mUser = new User(password1, name);
+
+        int userId = UserDao.pegaId(mUser, getApplicationContext());
+
         mProgressBar.setVisibility(View.GONE);
 
         if (result > 0) {
