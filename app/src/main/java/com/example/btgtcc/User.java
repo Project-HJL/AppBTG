@@ -2,7 +2,6 @@ package com.example.btgtcc;
 
 public class User {
     public static final String TAG = "User Entity";
-
     private int mId;
     private String mUserName;
     private String mPassword;

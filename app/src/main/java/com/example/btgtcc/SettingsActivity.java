@@ -1,13 +1,21 @@
 package com.example.btgtcc;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.util.Patterns;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.btgtcc.HomeActivity;
 import com.example.btgtcc.LibraryActivity;
@@ -20,12 +28,6 @@ public class SettingsActivity extends AppCompatActivity {
     private EditText editTextUsername, editTextPassword;
     private Button buttonSave, buttonDeleteAccount, buttonLogout;
     private TextView textViewUsername, textViewPassword;
-
-    private void showNavigation() {
-        Intent mIntent = new Intent(getApplicationContext(), LoginActivity.class);
-        startActivity(mIntent);
-        finish();
-    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,5 +72,22 @@ public class SettingsActivity extends AppCompatActivity {
             return false;
         });
         //Bottom Navigation
+
     }
+    public void logout(View view) {
+        // Limpar as informações de login no SharedPreferences
+        SharedPreferences mSharedPreferencesLogin = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
+        SharedPreferences.Editor mEditor = mSharedPreferencesLogin.edit();
+        mEditor.remove("logged");  // Remove a chave "logged" para indicar que o usuário não está mais logado
+        mEditor.remove("userId");  // Remove o ID do usuário
+        mEditor.apply();
+
+        // Redirecionar para a tela de login
+        Intent intent = new Intent(this, LoginActivity.class);
+        startActivity(intent);
+        finish();  // Encerra a atividade atual
+    }
+
+
+
 }

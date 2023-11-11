@@ -3,8 +3,10 @@ package com.example.btgtcc;
 import android.content.Context;
 import android.util.Log;
 
+import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
@@ -78,25 +80,49 @@ public class UserDao {
         return vResponse; // 0 não fez insert, 1 fez insert com sucesso
     }
 
-        public static int deleteUser(User mUser, Context mContext) {
-            int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
-            String mSql;
-            int userId = authenticateUser(mUser, mContext);
+    public static int deleteUser(User mUser, Context mContext) {
+        int vResponse = 0; // 0 = erro ao deletar
+        String mSql;
+        int userId = authenticateUser(mUser, mContext);
+
+
+        if (userId != -1) {
             try {
                 mSql = "DELETE FROM usuario WHERE id = ?";
 
-                PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+                Connection connection = MSSQLConnectionHelper.getConnection(mContext);
+                if (connection != null) {
+                    // Iniciar transação
+                    connection.setAutoCommit(false);
 
-                mPreparedStatement.setInt(1, userId);
+                    try (PreparedStatement mPreparedStatement = connection.prepareStatement(mSql)) {
+                        mPreparedStatement.setInt(1, userId);
 
-                vResponse = mPreparedStatement.executeUpdate();
+                        vResponse = mPreparedStatement.executeUpdate();
 
+                        // Confirmar a transação
+                        connection.commit();
+                    } catch (SQLException e) {
+                        // Reverter a transação em caso de exceção
+                        connection.rollback();
+                        Log.e(TAG, "Erro ao deletar usuário: " + e.getMessage());
+                    } finally {
+                        // Fechar a conexão
+                        connection.setAutoCommit(true);
+                        connection.close();
+                    }
+                }
             } catch (Exception e) {
-                Log.e(TAG, e.getMessage());
+                Log.e(TAG, "Erro ao deletar usuário: " + e.getMessage());
             }
-
-            return vResponse; // 0 não fez insert, 1 fez insert com sucesso
+        } else {
+            // Usuário não autenticado
+            Log.e(TAG, "Usuário não autenticado ao tentar deletar");
         }
+
+        return vResponse; // 0 não fez delete, 1 fez delete com sucesso
+    }
+
 
     public static int authenticateUser(User mUser, Context mContext) {
         int userId = -1;
@@ -119,6 +145,31 @@ public class UserDao {
         }
 
         return userId;
+    }
+
+    public static String infoSettings(User mUser, Context mContext) {
+        String mResponse = "";
+        int userId = authenticateUser(mUser, mContext);
+
+        String mSql = "SELECT nome , senha FROM usuario WHERE id=?";
+        try {
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+
+            mPreparedStatement.setInt(1, userId);
+
+            ResultSet mResultSet = mPreparedStatement.executeQuery();
+
+            while (mResultSet.next()) {
+                mResponse = mResultSet.getString(2);/*Provavel erro*/
+            }
+
+        } catch (Exception e) {
+            mResponse = "Exception";
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+        }
+
+        return mResponse;
     }
 
 

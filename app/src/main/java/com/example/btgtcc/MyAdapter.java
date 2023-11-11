@@ -58,25 +58,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         }
     }
 
-//    public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-//        holder.recTitle.setText(dataList.get(position).getDataTitle());
-//        holder.recDesc.setText(dataList.get(position).getDataDesc());
-//        holder.recLang.setText(dataList.get(position).getDataLang());
-//        holder.recCard.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(context, DetailActivity.class);
-//                intent.putExtra("Title", dataList.get(holder.getAdapterPosition()).getDataTitle());
-//                intent.putExtra("", dataList.get(holder.getAdapterPosition()).getDataDesc());
-//                intent.putExtra("Desc", dataList.get(holder.getAdapterPosition()).getDataDesc());
-//                intent.putExtra("Desc", dataList.get(holder.getAdapterPosition()).getDataDesc());
-//                intent.putExtra("Desc", dataList.get(holder.getAdapterPosition()).getDataDesc());
-//                context.startActivity(intent);
-//            }
-//        });
-
-
-//...
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         if (filteredList == null || position < 0 || position >= filteredList.size()) {
@@ -91,7 +72,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-//                Game game = filteredList.get(position);
                 Intent intent = new Intent(context, DetailActivity.class);
                 intent.putExtra("GameName", dataList.get(holder.getAdapterPosition()).getGameName());
                 intent.putExtra("Classification", dataList.get(holder.getAdapterPosition()).getClassification());
@@ -102,17 +82,6 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             }
         });
     }
-//...
 
 }
-
-
-//public void onClick(View view) {
-//                String link = game.getLink();
-//
-//                if (link != null && !link.isEmpty()) {
-//                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(link));
-//                    context.startActivity(browserIntent);
-//                }
-//                else{System.out.println("deu ruim myadapter");}
 
