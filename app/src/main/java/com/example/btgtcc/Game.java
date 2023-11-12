@@ -9,6 +9,8 @@ public class Game {
     private String mCompanyName;
     private String mLink;
     private String mDescription;
+    private int mId;
+
 
 
     @Override
@@ -17,16 +19,27 @@ public class Game {
                 ", mGameName='" + mGameName + '\'' +
                 ", mClassification='" + mClassification + '\'' +
                 ", mCompanyName='" + mCompanyName +
+                "mId=" + mId +
                 '}';
     }
 
+
     public Game(String gameName, String classification,
-                String companyName, String link, String description) {
+                String companyName, String link, String description , int id) {
         mGameName = gameName;
         mClassification = classification;
         mCompanyName = companyName;
         mLink = link;
         mDescription = description;
+        mId = id;
+    }
+
+    public int getId() {
+        return mId;
+    }
+
+    public void setId(int id) {
+        mId = id;
     }
 
     public String getGameName() {

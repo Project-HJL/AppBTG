@@ -12,26 +12,27 @@ public class GameDao {
 
     public static final String TAG = "CRUD table User";
 
-    //    public static int insertUser(User mUser, Context mContext) {
-//        int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
-//        String mSql;
-//        try {
-//            mSql = "INSERT INTO usuario (nome, email, senha) VALUES (?, ?, ?)";
-//
-//            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-//
-//            mPreparedStatement.setString(1, mUser.getUserName());
-//            mPreparedStatement.setString(2, mUser.getEmail());
-//            mPreparedStatement.setString(3, mUser.getPassword());
-//
-//            vResponse = mPreparedStatement.executeUpdate();
-//
-//        } catch (Exception e) {
-//            Log.e(TAG, e.getMessage());
-//        }
-//
-//        return vResponse; // 0 não fez insert, 1 fez insert com sucesso
-//    }
+        public static int insertLibrary(Game mGame,int userId, Context mContext) {
+        int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
+        String mSql;
+        try {
+            mSql = "INSERT INTO biblioteca (usuario_id, jogo_id) VALUES (?,?)";
+
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+
+//            ResultSet mResultSet = mPreparedStatement.executeQuery();
+
+
+            mPreparedStatement.setInt(1, userId);
+            mPreparedStatement.setInt(2, mGame.getId());
+            vResponse = mPreparedStatement.executeUpdate();
+
+        } catch (Exception e) {
+            Log.e(TAG, e.getMessage());
+        }
+
+        return vResponse; // 0 não fez insert, 1 fez insert com sucesso
+    }
 //
 //    public static int updateUser(User mUser, Context mContext) {
 //        int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
@@ -60,7 +61,7 @@ public class GameDao {
         String mSql;
 
         try {
-            mSql = "SELECT jogo.nome,jogo.classificacao , empresa.nome , jogo.link , jogo.descricao\n" +
+            mSql = "SELECT jogo.nome,jogo.classificacao , empresa.nome , jogo.link , jogo.descricao, jogo.id\n" +
                     "FROM jogo\n" +
                     "INNER JOIN empresa ON jogo.empresa_id = empresa.id";
             PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
@@ -75,7 +76,8 @@ public class GameDao {
                         mResultSet.getString(2),
                         mResultSet.getString(3),
                         mResultSet.getString(4),
-                        mResultSet.getString(5)
+                        mResultSet.getString(5),
+                        mResultSet.getInt(6)
                 ));
 
             }
