@@ -10,20 +10,20 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Nome de Usuário"
+        android:text="Email de Usuário"
         android:textSize="16sp"
         android:layout_marginTop="16dp"
-        android:id="@+id/textViewUsername"
+        android:id="@+id/textViewEmail"
         android:layout_centerHorizontal="true" />
 
     <EditText
-        android:id="@+id/editTextUsername"
+        android:id="@+id/editTextEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Seu Nome de Usuário"
+        android:hint="Seu Email de Usuário"
         android:inputType="text"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/textViewUsername"
+        android:layout_below="@+id/textViewEmail"
         android:layout_centerHorizontal="true" />
 
     <!-- Elemento de Layout para Senha -->
@@ -34,7 +34,7 @@
         android:textSize="16sp"
         android:id="@+id/textViewPassword"
         android:layout_centerHorizontal="true"
-        android:layout_below="@+id/editTextUsername"
+        android:layout_below="@+id/editTextEmail"
         android:layout_marginTop="16dp" />
 
     <EditText

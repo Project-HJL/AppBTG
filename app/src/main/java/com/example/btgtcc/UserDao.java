@@ -67,9 +67,9 @@
             int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
             String mSql;
             try {
-                mSql = "UPDATE usuario SET nome = ?, senha = ? WHERE id = ?";
+                mSql = "UPDATE usuario SET email = ?, senha = ? WHERE id = ?";
                 PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
-                mPreparedStatement.setString(1, mUser.getUserName());
+                mPreparedStatement.setString(1, mUser.getEmail());
                 mPreparedStatement.setString(2, mUser.getPassword());
                 mPreparedStatement.setInt(3, userId);
                 vResponse = mPreparedStatement.executeUpdate();

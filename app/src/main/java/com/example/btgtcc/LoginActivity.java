@@ -55,11 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-//    private void verifyLogged() {
-//        if (mSharedPreferencesLogin.getString("logged", "false").equals("true")) {
-//            showNavigation();
-//        }
-//    }
+    private void verifyLogged() {
+        if (mSharedPreferencesLogin.getString("logged", "false").equals("true")) {
+            showNavigation();
+        }
+    }
 
     private void postData() {
         mStringEmail = String.valueOf(mEditTextEmail.getText()).toLowerCase(Locale.ROOT);
@@ -173,7 +173,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mSharedPreferencesLogin = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
-//        verifyLogged();
+        verifyLogged();
 
 
     }

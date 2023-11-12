@@ -5,7 +5,11 @@ public class User {
     private int mId;
     private String mUserName;
     private String mPassword;
+    private String mPasswordForEdit;
     private String mEmail;
+
+
+    private String mUserNameForEdit;
 
     // Construtor para login
     public User(String password, String email) {
@@ -19,6 +23,12 @@ public class User {
         mPassword = password;
         mEmail = email;
     }
+
+//    // Construtor para EditAccount
+//    public User(String userName, String password) {
+//        mUserName = userName;
+//        mPassword = password;
+//    }
 
 
     public int getId() {

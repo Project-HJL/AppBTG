@@ -30,11 +30,10 @@ import java.util.Locale;
 public class SettingsActivity extends AppCompatActivity {
     public static final String TAG = "Settings Activity";
 
-    private EditText editTextUsername, editTextPassword;
+    private EditText editTextEmail, editTextPassword;
     private Button buttonSave, buttonDeleteAccount, buttonLogout;
     private TextView textViewUsername, textViewPassword;
     String mStringPassword, mStringEmail;
-    private User mUser;
     private SharedPreferences mSharedPreferencesLogin;
 
 
@@ -43,17 +42,13 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
 
-        editTextUsername = findViewById(R.id.editTextUsername);
+        editTextEmail = findViewById(R.id.editTextEmail);
         editTextPassword = findViewById(R.id.editTextPassword);
         buttonSave = findViewById(R.id.buttonSave);
         buttonDeleteAccount = findViewById(R.id.buttonDeleteAccount);
         buttonLogout = findViewById(R.id.buttonLogout);
-        textViewUsername = findViewById(R.id.textViewUsername);
+        textViewUsername = findViewById(R.id.textViewEmail);
         textViewPassword = findViewById(R.id.textViewPassword);
-
-        mStringEmail = String.valueOf(editTextUsername.getText()).toLowerCase(Locale.ROOT);
-        mStringPassword = String.valueOf(editTextPassword.getText());
-
 
 //Bottom Navigation
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
@@ -133,16 +128,19 @@ public class SettingsActivity extends AppCompatActivity {
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                mStringEmail = String.valueOf(editTextEmail.getText()).toLowerCase(Locale.ROOT);
+                mStringPassword = String.valueOf(editTextPassword.getText());
+
                 // Certifique-se de inicializar mSharedPreferencesLogin corretamente
                 mSharedPreferencesLogin = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
                 int userId = mSharedPreferencesLogin.getInt("userId", -1);
-
+                User mUser = new User(mStringPassword, mStringEmail);
                 if (userId != -1) {
                     int updateResult = UserDao.updateUser(mUser ,userId, getApplicationContext());
 
-                    //Logica aq
-
+                    Log.d(TAG, "Deu Certo");
 
                 } else {
                     Log.d(TAG, "Deu ruim na porra do update no settings");
@@ -150,25 +148,6 @@ public class SettingsActivity extends AppCompatActivity {
             }
         });
         //EditAccount
-
-
-        buttonSave.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-            }
-        });
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
