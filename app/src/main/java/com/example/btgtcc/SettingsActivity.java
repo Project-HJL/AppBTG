@@ -86,12 +86,16 @@ public class SettingsActivity extends AppCompatActivity {
         });
         //Bottom Navigation
 
+        //LogOut
         buttonLogout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 logout(v); // Chame o método logout quando o botão for clicado
             }
         });
+        //LogOut
+
+        //DeleteAccount
         buttonDeleteAccount.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -123,8 +127,31 @@ public class SettingsActivity extends AppCompatActivity {
                 }
             }
         });
+        //DeleteAccount
 
-        
+        //EditAccount
+        buttonSave.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Certifique-se de inicializar mSharedPreferencesLogin corretamente
+                mSharedPreferencesLogin = getSharedPreferences("MyAppName", MODE_PRIVATE);
+
+                int userId = mSharedPreferencesLogin.getInt("userId", -1);
+
+                if (userId != -1) {
+                    int updateResult = UserDao.updateUser(mUser ,userId, getApplicationContext());
+
+                    //Logica aq
+
+
+                } else {
+                    Log.d(TAG, "Deu ruim na porra do update no settings");
+                }
+            }
+        });
+        //EditAccount
+
+
         buttonSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

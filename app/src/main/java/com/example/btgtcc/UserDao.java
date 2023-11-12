@@ -63,10 +63,9 @@
         }
 
 
-        public static int updateUser(User mUser, Context mContext) {
+        public static int updateUser(User mUser,int userId, Context mContext) {
             int vResponse = 0; // variável de resposta com valor 0 = erro ao inserir
             String mSql;
-           int userId = pegaId(mUser, mContext);
             try {
                 mSql = "UPDATE usuario SET nome = ?, senha = ? WHERE id = ?";
                 PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
