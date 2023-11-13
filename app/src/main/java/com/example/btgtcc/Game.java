@@ -23,6 +23,9 @@ public class Game {
                 '}';
     }
 
+    public Game(int id) {
+        mId = id;
+    }
 
     public Game(String gameName, String classification,
                 String companyName, String link, String description , int id) {

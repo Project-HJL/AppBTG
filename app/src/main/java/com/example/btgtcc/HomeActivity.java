@@ -9,9 +9,10 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import android.widget.Toast;
+
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 
-import static com.example.btgtcc.GameDao.listAllGames;
+import static com.example.btgtcc.GameDao.listAllGamesGeneral;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,14 +21,11 @@ import java.util.Locale;
 public class HomeActivity extends AppCompatActivity {
 
     RecyclerView recyclerView;
-    //    List<DataClass> dataList;
-//    List<Game> dataList;
+
     MyAdapter adapter;
-    //    DataClass androidData;
-    Game androidData;
     SearchView searchView;
-    String mGameName, mClassification, mCompanyName;
     List<Game> dataList = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -84,14 +82,15 @@ public class HomeActivity extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(HomeActivity.this, 1);
         recyclerView.setLayoutManager(gridLayoutManager);
 
-        // Obtenha a lista de jogos do banco de dados
-        dataList = listAllGames(HomeActivity.this);
+// Obtenha a lista de todos os jogos do banco de dados
+        dataList = listAllGamesGeneral(HomeActivity.this);
 
         // Verifique se a lista não está vazia antes de prosseguir
         if (dataList != null && !dataList.isEmpty()) {
             adapter = new MyAdapter(HomeActivity.this, dataList);
             recyclerView.setAdapter(adapter);
-        } else {System.out.println("Erro HomeActivity");
+        } else {
+            System.out.println("Erro HomeActivity");
             // Lidar com o caso em que a lista de jogos está vazia (por exemplo, exibir uma mensagem de aviso)
         }
 

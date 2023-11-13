@@ -18,12 +18,11 @@ import com.example.btgtcc.R;
 
 public class DetailActivity extends AppCompatActivity {
     public static final String TAG = "Detail Activity";
-    private TextView detailGameName, detailGameClassification, detailGameDeveloper, detailGameDescription,detailId;
+    private TextView detailGameName, detailGameClassification, detailGameDeveloper, detailGameDescription, detailId;
     private Button detailDownloadButton;
     private String downloadUrl;
     private Game mGame;
     private SharedPreferences mSharedPreferencesLogin;
-//    private int detailId;
 
 
     @Override
@@ -36,16 +35,20 @@ public class DetailActivity extends AppCompatActivity {
         detailGameDeveloper = findViewById(R.id.detailCompanyName);
         detailDownloadButton = findViewById(R.id.detailLink);
         detailGameDescription = findViewById(R.id.detailDescription);
+        detailId = findViewById(R.id.detailId); // Adicione esta linha para inicializar detailId
 
 
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
+            int gameId = bundle.getInt("GameId", -1);
+            Log.d("DetailActivity", "GameId: " + gameId);
             detailGameName.setText(bundle.getString("GameName"));
             detailGameClassification.setText(bundle.getString("Classification"));
             detailGameDeveloper.setText(bundle.getString("CompanyName"));
             downloadUrl = bundle.getString("Link"); // Salve o URL do download
             detailGameDescription.setText(bundle.getString("Description"));
-            detailId.setText(bundle.getString("Id"));
+            detailId.setText(String.valueOf(gameId)); // Configura o TextView detailId
+
         }
 
         detailDownloadButton.setOnClickListener(new View.OnClickListener() {
@@ -56,22 +59,20 @@ public class DetailActivity extends AppCompatActivity {
                 mSharedPreferencesLogin = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
                 int userId = mSharedPreferencesLogin.getInt("userId", -1);
-                Game mGame = new Game(detailId);
-
 
                 if (userId != -1) {
-                    int insertResult = GameDao.insertLibrary(mGame ,userId, getApplicationContext());
-
-
-                    Log.d(TAG, "Deu Certo");
+                    int gameId = getIntent().getIntExtra("GameId", -1); // Obter o ID do jogo da Intent
+                    if (gameId != -1) {
+                        Game mGame = new Game(gameId);
+                        mGame.setId(gameId);
+                        int insertResult = GameDao.insertLibrary(mGame ,userId, getApplicationContext());
+                    }
+                        Log.d(TAG, "Deu Certo");
 
                 } else {
                     Log.d(TAG, "Deu ruim na porra do update no settings");
                 }
             }
-
-
-
         });
     }
 

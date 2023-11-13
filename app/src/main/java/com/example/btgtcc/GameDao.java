@@ -22,7 +22,6 @@ public class GameDao {
 
 //            ResultSet mResultSet = mPreparedStatement.executeQuery();
 
-
             mPreparedStatement.setInt(1, userId);
             mPreparedStatement.setInt(2, mGame.getId());
             vResponse = mPreparedStatement.executeUpdate();
@@ -56,7 +55,7 @@ public class GameDao {
 //        return vResponse; // 0 não fez insert, 1 fez insert com sucesso
 //    }
 
-    public static List<Game> listAllGames(Context mContext) {
+    public static List<Game> listAllGamesGeneral(Context mContext) {
         List<Game> mGameList = null;
         String mSql;
 
@@ -91,7 +90,45 @@ public class GameDao {
 
         return mGameList;
 
+    }    public static List<Game> listAllGamesLibrary(int userId, Context mContext) {
+        List<Game> mGameList = null;
+        String mSql;
+
+        try {
+            // Ajuste da consulta para filtrar os jogos associados ao usuário na tabela de biblioteca
+            mSql = "SELECT jogo.nome, jogo.classificacao, empresa.nome, jogo.link, jogo.descricao, jogo.id " +
+                    "FROM jogo " +
+                    "INNER JOIN empresa ON jogo.empresa_id = empresa.id " +
+                    "INNER JOIN biblioteca ON jogo.id = biblioteca.jogo_id " +
+                    "WHERE biblioteca.usuario_id = ?";
+
+            PreparedStatement mPreparedStatement = MSSQLConnectionHelper.getConnection(mContext).prepareStatement(mSql);
+            mPreparedStatement.setInt(1, userId); // Define o ID do usuário como parâmetro
+
+            ResultSet mResultSet = mPreparedStatement.executeQuery();
+
+            mGameList = new ArrayList<>();
+
+            while (mResultSet.next()) {
+                mGameList.add(new Game(
+                        mResultSet.getString(1),
+                        mResultSet.getString(2),
+                        mResultSet.getString(3),
+                        mResultSet.getString(4),
+                        mResultSet.getString(5),
+                        mResultSet.getInt(6)
+                ));
+            }
+
+        } catch (Exception e) {
+            System.out.println("deu ruim gameDao");
+            Log.e(TAG, e.getMessage());
+            e.printStackTrace();
+        }
+
+        return mGameList;
     }
+
 }
 
 
