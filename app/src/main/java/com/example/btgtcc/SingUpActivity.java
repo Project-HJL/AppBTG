@@ -1,6 +1,7 @@
 package com.example.btgtcc;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
@@ -22,6 +23,8 @@ public class  SingUpActivity extends AppCompatActivity {
     private Button mButtonSignUp;
     private TextView mTextViewAlreadyLogin;
     private ProgressBar mProgressBar;
+    SharedPreferences mSharedPreferencesLogin;
+
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -104,6 +107,11 @@ public class  SingUpActivity extends AppCompatActivity {
         if (result > 0) {
             // Registro bem-sucedido
             showMessage(getString(R.string.text_insert_success));
+
+            SharedPreferences.Editor mEditor = mSharedPreferencesLogin.edit();
+            mEditor.putString("logged", "true");
+            mEditor.putInt("userId", userId);
+            mEditor.apply();
 
             // Redireciona o usuário para a tela de HomeActivity ou outra tela apropriada
             Intent intent = new Intent(getApplicationContext(), HomeActivity.class);

@@ -90,7 +90,7 @@ public class LibraryActivity extends AppCompatActivity {
             adapter = new MyAdapter(LibraryActivity.this, dataList);
             recyclerView.setAdapter(adapter);
         } else {
-            System.out.println("Erro HomeActivity");
+            System.out.println("Erro LibraryActivity");
             // Lidar com o caso em que a lista de jogos está vazia (por exemplo, exibir uma mensagem de aviso)
         }
 

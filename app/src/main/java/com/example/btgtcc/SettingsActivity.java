@@ -155,10 +155,9 @@ public class SettingsActivity extends AppCompatActivity {
     public void logout(View view) {
         // Limpar as informações de login no SharedPreferences
         SharedPreferences mSharedPreferencesLogin = getSharedPreferences("LoginPrefs", Context.MODE_PRIVATE);
-        SharedPreferences.Editor mEditor = mSharedPreferencesLogin.edit();
-        mEditor.remove("logged");  // Remove a chave "logged" para indicar que o usuário não está mais logado
-        mEditor.remove("userId");  // Remove o ID do usuário
-        mEditor.apply();
+        SharedPreferences.Editor editor = mSharedPreferencesLogin.edit();
+        editor.clear();
+        editor.apply();
 
         // Redirecionar para a tela de login
         Intent intent = new Intent(this, LoginActivity.class);

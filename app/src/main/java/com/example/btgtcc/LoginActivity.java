@@ -55,11 +55,11 @@ public class LoginActivity extends AppCompatActivity {
         finish();
     }
 
-    private void verifyLogged() {
-        if (mSharedPreferencesLogin.getString("logged", "false").equals("true")) {
-            showNavigation();
-        }
-    }
+//    private void verifyLogged() {
+//        if (mSharedPreferencesLogin.getString("logged", "false").equals("true")) {
+//            showNavigation();
+//        }
+//    }
 
     private void postData() {
         mStringEmail = String.valueOf(mEditTextEmail.getText()).toLowerCase(Locale.ROOT);
@@ -82,8 +82,6 @@ public class LoginActivity extends AppCompatActivity {
         User mUser = new User(mStringPassword, mStringEmail);
 
         int userId = UserDao.pegaId(mUser, getApplicationContext());
-
-//        int deleteResult = UserDao.deleteUser(userId, getApplicationContext());
 
 
         String mResult = UserDao.authenticateUser(mUser, getApplicationContext());
@@ -173,7 +171,7 @@ public class LoginActivity extends AppCompatActivity {
 
         mSharedPreferencesLogin = getSharedPreferences("MyAppName", MODE_PRIVATE);
 
-        verifyLogged();
+//        verifyLogged();
 
 
     }
